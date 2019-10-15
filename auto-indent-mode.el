@@ -2301,7 +2301,7 @@ When FUNCTION is non-nil, defines `auto-indent-kill-region'"
                  'ad-do-it)))
     `(,(if function 'defun 'defadvice)
       ,(if function 'auto-indent-kill-region 'kill-region)
-      ,(if function '(&optional beg end &optional yank-handler) '(around auto-indent-mode-advice))
+      ,(if function '(&optional beg end yank-handler) '(around auto-indent-mode-advice))
       "Kill region advice and function.  Allows the region to delete the beginning white-space if desired."
       ,(if function '(interactive (list (point) (mark))) nil)
       (if (not ,(if function t
